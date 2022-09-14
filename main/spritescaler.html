@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>SkyTemple Helper</title>
+    <script defer src="index.js"></script>
+    <script defer src="spritescaler.js"></script>
+    <link rel="stylesheet" href="./index.css" />
+    <link rel="stylesheet" href="./subtools.css" />
+    <link rel="stylesheet" href="./slider.css" />
+</head>
+
+<body>
+    <img src="../assets/logo.png" alt="SkyTemple Helper" style="height:172px; width:auto;">
+    <div class="row">
+        <h3>Made by 25Pi25</h3>
+        <h3 class="mainlineFont">(sec#7339)</h3>
+    </div>
+
+    <div class="box dir row">
+        <a id="dirPrompt" class="mainlineFont"></a>
+        <button onclick="selectDir()">Choose Folder</button>
+    </div>
+
+</body>
+
+<body>
+    <div class="box toolBox">
+        <div class="center" style="vertical-align: middle;">
+            <a href="index.html" class="back grow">
+                <p style="margin: 17.4px;">Back</p>
+            </a>
+            <h1 style="margin: 20px;">Sprite Scaler</h1>
+        </div>
+        <div class="box argBox">
+            <div class="row">
+                <p>Scale Size: x2</p>
+                <label class="switch">
+                    <input type="checkbox" id="spriteSize">
+                    <span class="slider round"></span>
+                </label>
+                <p>x3</p>
+            </div>
+            <div class="row">
+                <p>Input Folder: </p>
+                <button onclick="setInputDir()">Choose Folder</button>
+                <p id="inputDir" class="mainlineFont"></p>
+            </div>
+            <button id="scaler" onclick="scaleSprite()">Overwrite & Scale!</button>
+        </div>
+    </div>
+</body>
+
+</html>

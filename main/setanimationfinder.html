@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>SkyTemple Helper</title>
+  <script defer src="index.js"></script>
+  <script defer src="pokeselector.js"></script>
+  <script defer src="setanimationfinder.js"></script>
+  <link rel="stylesheet" href="./index.css" />
+  <link rel="stylesheet" href="./subtools.css" />
+</head>
+
+<body>
+  <img src="../assets/logo.png" alt="SkyTemple Helper" style="height:172px; width:auto;">
+  <div class="row">
+    <h3>Made by 25Pi25</h3>
+    <h3 class="mainlineFont">(sec#7339)</h3>
+  </div>
+
+  <div class="box dir row">
+    <a id="dirPrompt" class="mainlineFont"></a>
+    <button onclick="selectDir()">Choose Folder</button>
+  </div>
+
+</body>
+
+<body>
+  <div class="box toolBox" style="min-height: 600px;">
+    <div class="center" style="vertical-align: middle;">
+      <a href="index.html" class="back grow">
+        <p style="margin: 17.4px;">Back</p>
+      </a>
+      <h1 style="margin: 20px;">SetAnimation Finder</h1>
+    </div>
+    <div class="box argBox">
+      <div class="row">
+        <p>Pokemon: </p>
+        <input type="text" name="Pokemon" id="pokemonInput">
+        <p id="pokemonInputPredict" class="mainlineFont"></p>
+      </div>
+      <div class="row">
+        <label>Variant: </label>
+        <select name="variantList" id="variantList"></select>
+      </div>
+      <div class="row">
+        <label>Animation: </label>
+        <select name="animationList" id="animationList"></select>
+      </div>
+    </div>
+    <table id="setAnimationTable"></table>
+  </div>
+</body>
+
+</html>

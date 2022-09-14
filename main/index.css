@@ -1,0 +1,98 @@
+body {
+  font-family: 'PKMN Mystery Dungeon';
+  font-size: x-large;
+  margin: auto;
+  max-width: 75%;
+  padding: 1%;
+  /* My additions */
+  background-image: url("../assets/background.gif");
+  background-position-x: 50%;
+  background-size: cover;
+  background-attachment: scroll;
+  image-rendering: pixelated;
+  color: white;
+  text-align: center;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  /* no underline */
+}
+
+.row * {
+  display: inline-block;
+}
+
+.box {
+  margin: 5% auto;
+}
+
+.dir {
+  height: fit-content;
+  width: fit-content;
+  border: 2px solid red;
+  background-color: rgba(60, 0, 0, 0.85);
+  padding: 10px;
+  margin: 2% auto;
+}
+
+.buttonSelections {
+  height: fit-content;
+  width: 60%;
+  border: 2px solid rgba(30, 30, 30, 1);
+  background-color: rgba(40, 40, 40, 0.9);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  overflow: hidden scroll;
+  padding: 30px;
+}
+
+.mainlineFont {
+  font-family: 'Power Red And Green';
+  font-size: medium;
+}
+
+.item {
+  border: 2px solid gray;
+  height: 100px;
+  width: 100px;
+  padding: 10px;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-evenly;
+  align-items: center;
+
+  background-color: rgba(0, 0, 0, 0.7);
+  background-blend-mode: multiply;
+  background-size: contain;
+}
+
+.item>a {
+  font-family: 'Power Red And Green';
+  font-size: 22px;
+  color: white;
+}
+
+.grow {
+  transition: all .2s ease-in-out;
+}
+
+.grow:hover {
+  transform: scale(1.1);
+}
+
+.back {
+  background-color: black;
+  border: 2px solid gray;
+  place-items: center;
+  height: 50px;
+  width: 75px;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
