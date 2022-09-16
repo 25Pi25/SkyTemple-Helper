@@ -1,3 +1,4 @@
-const settings = require('../../assets/settings.json');
+const { app } = require('electron')
+const settings = require(`${app.getPath('userData')}/misc/settings.json`)
 
-exports.handler = () => settings.mainPath
+exports.handler = async () => settings?.mainPath

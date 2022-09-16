@@ -1,4 +1,5 @@
-const { app, BrowserWindow, contextBridge } = require('electron');
+const { app, BrowserWindow } = require('electron');
+const { existsSync, mkdirSync, writeFileSync } = require('fs');
 const path = require('path');
 const { handleIPC } = require('./handleIPC.js');
 
@@ -54,3 +55,8 @@ app.on('activate', () => {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and import them here.
+const dbPath = app.getPath('userData')
+if (!existsSync(`${dbPath}/misc/settings.json`)) {
+  mkdirSync(`${dbPath}/misc`)
+  writeFileSync(`${dbPath}/misc/settings.json`, "{}")
+}

@@ -1,9 +1,7 @@
 const axios = require("axios");
 const admZip = require('adm-zip');
 const { writeFileSync, mkdirSync, existsSync } = require("fs");
-const settings = require('../../assets/settings.json');
-const soundPlay = require('sound-play');
-const path = require("path");
+const settings = require(`${app.getPath('userData')}/misc/settings.json`)
 
 exports.handler = async (event, variant, pokemon) => {
     try {
