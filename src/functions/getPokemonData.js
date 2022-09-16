@@ -7,7 +7,7 @@ exports.handler = async (event, pokemon) => {
         method: 'post',
         headers: { 'Content-Type': 'application/json' },
         data: {
-            query: `query ($pokemon: Int!) { monster(filter:[$pokemon]) { id name forms { fullName portraits{ sheetUrl previewEmotion { url }} sprites{ zipUrl animDataXml }}}}`,
+            query: `query ($pokemon: Int!) { monster(filter:[$pokemon]) { id name forms { fullName portraits{ sheetUrl previewEmotion { url }} sprites{ zipUrl animDataXml recolorSheetUrl }}}}`,
             variables: { pokemon }
         }
     })

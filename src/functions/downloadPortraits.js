@@ -1,5 +1,5 @@
 const axios = require("axios");
-const { ipcRenderer } = require("electron");
+const { ipcRenderer, app } = require("electron");
 const { writeFileSync } = require("fs");
 const settings = require(`${app.getPath('userData')}/misc/settings.json`)
 

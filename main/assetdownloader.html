@@ -26,7 +26,7 @@
 </body>
 
 <body>
-  <div class="box toolBox" style="height: 650px;">
+  <div class="box toolBox" style="min-height: 750px;">
     <div class="center" style="vertical-align: middle;">
       <a href="index.html" class="back grow">
         <p style="margin: 17.4px;">Back</p>
@@ -49,7 +49,10 @@
         <button id="downloadSprites" onclick="window.electronAPI.downloadSprites(selectedVariant, pokemon); this.disabled=true" disabled>Download Sprites</button>
       </div>
     </div>
-    <div class="row" id="portraitPreview"></div>
+    <div class="row" style="display: flex; justify-content: center; ">
+      <a id="portraitPreview" style="object-fit: contain;"></a>
+      <a id="spritePreview" style="object-fit: contain;"></a>
+    </div>
   </div>
 </body>
 
