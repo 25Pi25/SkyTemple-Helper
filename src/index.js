@@ -19,16 +19,24 @@ const createWindow = () => {
     },
   });
 
+  // global.processWindow = new BrowserWindow({
+  //   width:1920,
+  //   height: 1080,
+  //   show: true
+  // })
+
   mainWindow.maximize();
 
   // and load the index.html of the app.
   mainWindow.loadFile(path.join(__dirname, '../main/index.html'));
+  //processWindow.loadFile(path.join(__dirname, '../main/process.html'));
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools();
+  //mainWindow.webContents.openDevTools();
 
   // Handle IPC events.
   handleIPC(mainWindow);
+  //handleIPC(processWindow);
 };
 
 // This method will be called when Electron has finished

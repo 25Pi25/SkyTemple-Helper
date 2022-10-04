@@ -9,7 +9,8 @@ async function setInputDir() {
 
 async function scaleSprite() {
     document.getElementById('scaler').disabled = true
-    console.log(document.getElementById('spriteSize').checked, document.getElementById('inputDir').innerHTML)
-    window.electronAPI.scaleSprite(document.getElementById('spriteSize').checked, document.getElementById('inputDir').innerHTML)
+    console.log(parseInt(document.getElementById('spriteSize').value), document.getElementById('inputDir').innerHTML)
+    console.log(document.getElementById('spriteSize').value)
+    window.electronAPI.scaleSprite(Number(document.getElementById('spriteSize').value), document.getElementById('inputDir').innerHTML)
     return;
 }
