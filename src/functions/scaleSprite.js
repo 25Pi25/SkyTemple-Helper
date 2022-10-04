@@ -4,6 +4,7 @@ const xml2js = require('xml2js');
 const getPixels = require('get-pixels');
 const convertPixels = require('image-output');
 const util = require('util');
+const { hasUncaughtExceptionCaptureCallback } = require('process');
 const getPixelsAsync = util.promisify(getPixels);
 
 exports.handler = async (event, size, path) => {
@@ -71,10 +72,33 @@ exports.handler = async (event, size, path) => {
 
                 //Destroy groups of white pixels in shadows
                 const roundedLocations = pixelLocations.map(x => x.map(x => typeof x == 'number' ? Math.round(x / 2) : x))
+                roundedLocations.map((roundedPixels, index) => {
+                    if (roundedLocations.findIndex(x => x[0] == roundedPixels[0] && x[1] == roundedPixels[1]) == index) return;
+                    const offset = [...roundedPixels.slice(0, 2)];
+                    const indexExists = () => {
+                        const findIndex = roundedLocations.findIndex(x => x[0] == offset[0] && x[1] == offset[1])
+                        if (findIndex == -1 || findIndex > index) {
+                            roundedPixels[0] = offset[0]
+                            roundedPixels[1] = offset[1]
+                            return false;
+                        } else return true;
+                    }
+                    offset[1]++;
+                    if (!indexExists()) return roundedPixels;
+                    offset[0]++;
+                    if (!indexExists()) return roundedPixels;
+                    offset[1]--;
+                    if (!indexExists()) return roundedPixels;
+                    offset[0]-=2;
+                    if (!indexExists()) return roundedPixels;
+                    offset[1]++;
+                    if (!indexExists()) return roundedPixels;
+                    throw new Exception();
+                })
+
                 if (method === 1) properPixels.forEach((pixel, index) => {
                     if (roundedLocations.some(x => x[0] + x[1] * frameWidth == index)) {
                         properPixels[index] = [...whitepixel]
-                        //pixelLocations.shift();
                     }
                 })
                 if (method === 2) properPixels.forEach((pixel, index) => {
@@ -164,7 +188,6 @@ exports.handler = async (event, size, path) => {
             }
         }
         const timeout = setInterval(() => {
-            console.log(totalAnims)
             if(totalAnims == 0) {
                 clearInterval(timeout); 
                 mainWindow.webContents.send('alert', true)
