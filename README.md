@@ -5,7 +5,7 @@ Some applications will require you to set a directory output, or else they will 
 
 ## Sprite Scaler
 
-Select an input folder containing all your sprite animations, shadows, and offsets as well as the AnimData.xml and scale all of them by x2 or x3. The AnimData.xml is adjusted accordingly.
+Select an input folder containing all your sprite animations, shadows, and offsets as well as the AnimData.xml and scale all of them by x0.5, x2, or x3. The AnimData.xml is adjusted accordingly.
 
 ## SetAnimation Finder
 
