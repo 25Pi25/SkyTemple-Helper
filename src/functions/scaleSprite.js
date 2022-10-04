@@ -7,7 +7,7 @@ const util = require('util');
 const getPixelsAsync = util.promisify(getPixels);
 
 exports.handler = async (event, size, path) => {
-    //try {
+    try {
         const greenpixel = [0, 255, 0, 255]
         const blankpixel = new Array(4).fill(0)
         const whitepixel = new Array(4).fill(255)
@@ -172,10 +172,10 @@ exports.handler = async (event, size, path) => {
                 return;
             }
         }, 100);
-    // } catch {
-    //     mainWindow.webContents.send('alert', false)
-    //     mainWindow.webContents.send('enableButton', 'scaler')
-    // }
+    } catch {
+        mainWindow.webContents.send('alert', false)
+        mainWindow.webContents.send('enableButton', 'scaler')
+    }
 }
 
 function toBuffer(ab) {
